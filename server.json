@@ -1,0 +1,28 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.spacefast/mcp",
+  "title": "Spacefast",
+  "description": "Build, publish, and manage websites, dashboards, reports, and web tools with Spacefast.",
+  "icons": [
+    {
+      "src": "https://spacefast.com/app-icon-192x192.png",
+      "mimeType": "image/png"
+    },
+    {
+      "src": "https://spacefast.com/app-icon-512x512.png",
+      "mimeType": "image/png"
+    }
+  ],
+  "version": "0.5.1",
+  "repository": {
+    "url": "https://github.com/spacefast/mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://spacefast.com",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.spacefast.com"
+    }
+  ]
+}
