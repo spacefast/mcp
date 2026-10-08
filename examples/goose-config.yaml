@@ -1,0 +1,8 @@
+extensions:
+  spacefast:
+    name: Spacefast
+    description: Build and share your AI work
+    type: streamable_http
+    uri: https://mcp.spacefast.com
+    enabled: true
+    timeout: 300

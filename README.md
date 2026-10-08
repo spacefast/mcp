@@ -67,6 +67,24 @@ claude plugin install spacefast@spacefast
 
 See the [Spacefast Claude Code setup guide](https://spacefast.com/docs/setup/claude-code/) for the full plugin setup.
 
+### goose
+
+In goose Desktop, open **Extensions → Add custom extension**. Choose **Streamable HTTP**, name it **Spacefast**, and set the URL to `https://mcp.spacefast.com`. Add the extension and complete the Spacefast sign-in flow in your browser. No API key or custom headers are needed.
+
+For the CLI, run `goose configure`, select **Add Extension → Remote Extension (Streamable HTTP)**, and use the same name and URL.
+
+You can also merge the `spacefast` entry from [the goose configuration example](examples/goose-config.yaml) into `extensions` in `~/.config/goose/config.yaml`. Keep your existing extensions and other settings.
+
+To add all seven Spacefast skills to your project, run this from the project directory:
+
+```sh
+DISABLE_TELEMETRY=1 npx -y skills@1.5.23 add https://github.com/spacefast/plugins/tree/main/skills --agent goose --skill '*' --yes
+```
+
+Run `goose skills list` from that directory to check the installation. This installs skills such as `build-website` and `edit-space`; configure the MCP connection using the steps above. goose 1.54.0's plugin importer does not accept remote MCP declarations, so use this skills installer for that release. See the official [extension setup](https://goose-docs.ai/docs/getting-started/using-extensions/) and [skills guide](https://goose-docs.ai/docs/guides/context-engineering/using-skills/).
+
+Spacefast is published as [`io.github.spacefast/mcp` in the official MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers/io.github.spacefast%2Fmcp/versions/latest). goose is [moving its directory to that registry](https://github.com/aaif-goose/goose/discussions/10830); appearing in goose's directory depends on that migration. You can connect directly now.
+
 ## Authentication
 
 The hosted MCP server requires a Spacefast account and OAuth before tools can run. The client discovers the authorization server, registers through OAuth Dynamic Client Registration, and signs you in with an authorization code flow using PKCE (`S256`). You do not need to create an API key or configure a client secret.
