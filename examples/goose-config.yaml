@@ -3,6 +3,6 @@ extensions:
     name: Spacefast
     description: Build and share your AI work
     type: streamable_http
-    uri: https://mcp.spacefast.com
+    uri: https://mcp.spacefast.com?mode=full
     enabled: true
     timeout: 300

@@ -12,7 +12,9 @@ Spacefast is by [Automattic](https://automattic.com/). This repository contains 
 
 ## Connect
 
-Endpoint: **`https://mcp.spacefast.com`**
+Endpoint: **`https://mcp.spacefast.com?mode=full`**
+
+These examples select full mode. Spacefast API operations run through `execute`, and connected-service tools use `search_connector_tools`.
 
 Transport: **Streamable HTTP**. Use a client that supports remote MCP servers and browser OAuth.
 
@@ -25,7 +27,7 @@ Add this to `.mcp.json` in your project. Merge the `spacefast` entry into any ex
   "mcpServers": {
     "spacefast": {
       "type": "http",
-      "url": "https://mcp.spacefast.com"
+      "url": "https://mcp.spacefast.com?mode=full"
     }
   }
 }
@@ -40,7 +42,7 @@ VS Code also supports `.vscode/mcp.json`, which uses `servers` as its top-level 
   "servers": {
     "spacefast": {
       "type": "http",
-      "url": "https://mcp.spacefast.com"
+      "url": "https://mcp.spacefast.com?mode=full"
     }
   }
 }
@@ -53,7 +55,7 @@ See the [VS Code example](examples/vscode-mcp.json) and [VS Code MCP setup guide
 For the MCP connection:
 
 ```sh
-claude mcp add --transport http spacefast https://mcp.spacefast.com
+claude mcp add --transport http spacefast 'https://mcp.spacefast.com?mode=full'
 ```
 
 Run `/mcp` in Claude Code and follow the browser sign-in flow.
@@ -69,13 +71,13 @@ See the [Spacefast Claude Code setup guide](https://spacefast.com/docs/setup/cla
 
 ### goose
 
-In goose Desktop, open **Extensions → Add custom extension**. Choose **Streamable HTTP**, name it **Spacefast**, and set the URL to `https://mcp.spacefast.com`. Add the extension and complete the Spacefast sign-in flow in your browser. No API key or custom headers are needed.
+In goose Desktop, open **Extensions → Add custom extension**. Choose **Streamable HTTP**, name it **Spacefast**, and set the URL to `https://mcp.spacefast.com?mode=full`. Add the extension and complete the Spacefast sign-in flow in your browser. No API key or custom headers are needed.
 
 For the CLI, run `goose configure`, select **Add Extension → Remote Extension (Streamable HTTP)**, and use the same name and URL.
 
 You can also merge the `spacefast` entry from [the goose configuration example](examples/goose-config.yaml) into `extensions` in `~/.config/goose/config.yaml`. Keep your existing extensions and other settings.
 
-To add all seven Spacefast skills to your project, run this from the project directory:
+To add all Spacefast skills to your project, run this from the project directory:
 
 ```sh
 DISABLE_TELEMETRY=1 npx -y skills@1.5.23 add https://github.com/spacefast/plugins/tree/main/skills --agent goose --skill '*' --yes
@@ -95,8 +97,8 @@ OAuth resource metadata is available at [`/.well-known/oauth-protected-resource`
 
 - Publish new inline files from your conversation and check the result with `publish` and `operation_status`.
 - Edit a Space's saved source, deploy changes, manage sharing and domains, or restore a version through `execute`.
-- Inspect a Space and choose a destination with `show_space` and `choose_space`.
-- Find the team's connected services and their tools with `search`.
+- Inspect a Space with view tools such as `show_space_preview`, `show_space_source_files`, and `show_space_deployments`. Choose a destination with `choose_space`.
+- Find and call the team's connected-service tools with `search_connector_tools`.
 - Continue a task that paused for user input with `resume_execution`.
 
 The hosted server works with inline files and Spacefast's stored source. For files on your computer, use the [Spacefast CLI](https://spacefast.com/docs/cli/). Interactive views depend on your client's MCP Apps support; available actions also depend on your account permissions and plan.
@@ -109,7 +111,7 @@ Try asking:
 
 ## Skills
 
-The [Spacefast plugin](https://github.com/spacefast/plugins) includes seven skills for clients that support them:
+The [Spacefast plugin](https://github.com/spacefast/plugins) includes these skills for clients that support them:
 
 | Skill | Use it to |
 | --- | --- |
@@ -120,6 +122,10 @@ The [Spacefast plugin](https://github.com/spacefast/plugins) includes seven skil
 | [custom-domain](https://github.com/spacefast/plugins/tree/main/skills/custom-domain) | Use your own domain |
 | [fix-deployment](https://github.com/spacefast/plugins/tree/main/skills/fix-deployment) | Fix or restore a deployment |
 | [setup](https://github.com/spacefast/plugins/tree/main/skills/setup) | Get started |
+| [import-design-system](https://github.com/spacefast/plugins/tree/main/skills/import-design-system) | Save your design standards |
+| [apply-design-system](https://github.com/spacefast/plugins/tree/main/skills/apply-design-system) | Build with your saved design system |
+| [verify-design-system](https://github.com/spacefast/plugins/tree/main/skills/verify-design-system) | Check a build against your design system |
+| [update-design](https://github.com/spacefast/plugins/tree/main/skills/update-design) | Align a Space with your current design system |
 
 ## Help
 

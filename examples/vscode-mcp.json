@@ -2,7 +2,7 @@
   "servers": {
     "spacefast": {
       "type": "http",
-      "url": "https://mcp.spacefast.com"
+      "url": "https://mcp.spacefast.com?mode=full"
     }
   }
 }
