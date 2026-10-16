@@ -12,9 +12,9 @@ Spacefast is by [Automattic](https://automattic.com/). This repository contains 
 
 ## Connect
 
-Endpoint: **`https://mcp.spacefast.com?mode=full`**
+Endpoint: **`https://mcp.spacefast.com`**
 
-These examples select full mode. Spacefast API operations run through `execute`, and connected-service tools use `search_connector_tools`.
+Spacefast serves one code-mode surface: `search` finds Spacefast API operations and reads their input and output types without calling them, and `execute` runs JavaScript that calls them. Publishing, approvals, and the visual MCP Apps sit alongside those two tools.
 
 Transport: **Streamable HTTP**. Use a client that supports remote MCP servers and browser OAuth.
 
@@ -27,7 +27,7 @@ Add this to `.mcp.json` in your project. Merge the `spacefast` entry into any ex
   "mcpServers": {
     "spacefast": {
       "type": "http",
-      "url": "https://mcp.spacefast.com?mode=full"
+      "url": "https://mcp.spacefast.com"
     }
   }
 }
@@ -42,7 +42,7 @@ VS Code also supports `.vscode/mcp.json`, which uses `servers` as its top-level 
   "servers": {
     "spacefast": {
       "type": "http",
-      "url": "https://mcp.spacefast.com?mode=full"
+      "url": "https://mcp.spacefast.com"
     }
   }
 }
@@ -55,7 +55,7 @@ See the [VS Code example](examples/vscode-mcp.json) and [VS Code MCP setup guide
 For the MCP connection:
 
 ```sh
-claude mcp add --transport http spacefast 'https://mcp.spacefast.com?mode=full'
+claude mcp add --transport http spacefast 'https://mcp.spacefast.com'
 ```
 
 Run `/mcp` in Claude Code and follow the browser sign-in flow.
@@ -71,7 +71,7 @@ See the [Spacefast Claude Code setup guide](https://spacefast.com/docs/setup/cla
 
 ### goose
 
-In goose Desktop, open **Extensions → Add custom extension**. Choose **Streamable HTTP**, name it **Spacefast**, and set the URL to `https://mcp.spacefast.com?mode=full`. Add the extension and complete the Spacefast sign-in flow in your browser. No API key or custom headers are needed.
+In goose Desktop, open **Extensions → Add custom extension**. Choose **Streamable HTTP**, name it **Spacefast**, and set the URL to `https://mcp.spacefast.com`. Add the extension and complete the Spacefast sign-in flow in your browser. No API key or custom headers are needed.
 
 For the CLI, run `goose configure`, select **Add Extension → Remote Extension (Streamable HTTP)**, and use the same name and URL.
 
@@ -96,9 +96,8 @@ OAuth resource metadata is available at [`/.well-known/oauth-protected-resource`
 ## What you can do
 
 - Publish new inline files from your conversation and check the result with `publish` and `operation_status`.
-- Edit a Space's saved source, deploy changes, manage sharing and domains, or restore a version through `execute`.
+- Find Spacefast API operations with `search`, then edit a Space's saved source, deploy changes, manage sharing and domains, or restore a version through `execute`.
 - Inspect a Space with view tools such as `show_space_preview`, `show_space_source_files`, and `show_space_deployments`. Choose a destination with `choose_space`.
-- Find and call the team's connected-service tools with `search_connector_tools`.
 - Continue a task that paused for user input with `resume_execution`.
 
 The hosted server works with inline files and Spacefast's stored source. For files on your computer, use the [Spacefast CLI](https://spacefast.com/docs/cli/). Interactive views depend on your client's MCP Apps support; available actions also depend on your account permissions and plan.

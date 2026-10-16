@@ -13,7 +13,7 @@
       "mimeType": "image/png"
     }
   ],
-  "version": "0.6.1",
+  "version": "0.8.0",
   "repository": {
     "url": "https://github.com/spacefast/mcp",
     "source": "github"
@@ -22,7 +22,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://mcp.spacefast.com?mode=full"
+      "url": "https://mcp.spacefast.com"
     }
   ]
 }
