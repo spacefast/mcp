@@ -14,7 +14,7 @@ Spacefast is by [Automattic](https://automattic.com/). This repository contains 
 
 Endpoint: **`https://mcp.spacefast.com`**
 
-Spacefast serves one code-mode surface: `search` finds Spacefast API operations and reads their input and output types without calling them, and `execute` runs JavaScript that calls them. Publishing, approvals, and the visual MCP Apps sit alongside those two tools.
+Spacefast exposes each eligible Spacefast API operation as its own tool, named by its operation ID (for example `getAccount`), with its description, input and output schemas, and safety annotations. Publishing, approvals, and the visual MCP Apps sit alongside those operation tools. The earlier `search` and `execute` code-mode tools were removed; refresh your client's tool list if it still shows them.
 
 Transport: **Streamable HTTP**. Use a client that supports remote MCP servers and browser OAuth.
 
@@ -89,14 +89,14 @@ Spacefast is published as [`io.github.spacefast/mcp` in the official MCP Registr
 
 ## Authentication
 
-The hosted MCP server requires a Spacefast account and OAuth before tools can run. The client discovers the authorization server, registers through OAuth Dynamic Client Registration, and signs you in with an authorization code flow using PKCE (`S256`). You do not need to create an API key or configure a client secret.
+The hosted MCP server requires a Spacefast account and OAuth before tools can run. The client discovers the authorization server, identifies itself through either OAuth Dynamic Client Registration or a Client ID Metadata Document (both are supported), and signs you in with an authorization code flow using PKCE (`S256`). You do not need to create an API key or configure a client secret.
 
 OAuth resource metadata is available at [`/.well-known/oauth-protected-resource`](https://mcp.spacefast.com/.well-known/oauth-protected-resource). Your MCP client handles the access token. Keep credentials out of shared configuration files.
 
 ## What you can do
 
 - Publish new inline files from your conversation and check the result with `publish` and `operation_status`.
-- Find Spacefast API operations with `search`, then edit a Space's saved source, deploy changes, manage sharing and domains, or restore a version through `execute`.
+- Call Spacefast API operation tools by name to edit a Space's saved source, deploy changes, manage sharing and domains, or restore a version.
 - Inspect a Space with view tools such as `show_space_preview`, `show_space_source_files`, and `show_space_deployments`. Choose a destination with `choose_space`.
 - Continue a task that paused for user input with `resume_execution`.
 
