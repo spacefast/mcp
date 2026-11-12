@@ -5,12 +5,11 @@
   "description": "Build, publish, and manage websites, dashboards, reports, and web tools with Spacefast.",
   "icons": [
     {
-      "src": "https://spacefast.com/app-icon-192x192.png",
-      "mimeType": "image/png"
-    },
-    {
-      "src": "https://spacefast.com/app-icon-512x512.png",
-      "mimeType": "image/png"
+      "src": "https://raw.githubusercontent.com/spacefast/plugins/main/assets/logo-400.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "400x400"
+      ]
     }
   ],
   "version": "0.9.0",
