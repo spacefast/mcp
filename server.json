@@ -18,6 +18,23 @@
     "source": "github"
   },
   "websiteUrl": "https://spacefast.com",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "spacefast",
+      "version": "0.9.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "mcp"
+        }
+      ]
+    }
+  ],
   "remotes": [
     {
       "type": "streamable-http",
