@@ -139,7 +139,7 @@ If the connection returns `401 Unauthorized`, use your client's MCP login action
 
 ## MCP Registry
 
-The registry name is `io.github.spacefast/mcp`. [`server.json`](server.json) describes the hosted endpoint for the [MCP Registry](https://registry.modelcontextprotocol.io/).
+The registry name is `io.github.spacefast/mcp`. [`server.json`](server.json) describes the hosted endpoint and the local stdio server from the [`spacefast`](https://www.npmjs.com/package/spacefast) npm package (`npx -y spacefast mcp`) for the [MCP Registry](https://registry.modelcontextprotocol.io/). Keep the package `version` equal to the server `version` when you bump it.
 
 ## License
 
