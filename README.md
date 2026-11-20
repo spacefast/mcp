@@ -98,6 +98,7 @@ OAuth resource metadata is available at [`/.well-known/oauth-protected-resource`
 - Publish new inline files from your conversation and check the result with `publish` and `operation_status`.
 - Call Spacefast API operation tools by name to edit a Space's saved source, deploy changes, manage sharing and domains, or restore a version.
 - Inspect a Space with view tools such as `show_space_preview`, `show_space_source_files`, and `show_space_deployments`. Choose a destination with `choose_space`.
+- Inspect a claimed Space's database with `listSpaceDatabaseTables` and `listSpaceDatabaseRows`. Add, update, or delete rows with `createSpaceDatabaseRows`, `updateSpaceDatabaseRows`, and `deleteSpaceDatabaseRows`. These operations need `spaces:write`; deletes pause for approval. Check `readOnlyReason` and use complete primary keys for edits. After an uncertain write result, inspect the rows before any further action.
 - Continue a task that paused for user input with `resume_execution`.
 
 The hosted server works with inline files and Spacefast's stored source. For files on your computer, use the [Spacefast CLI](https://spacefast.com/docs/cli/). Interactive views depend on your client's MCP Apps support; available actions also depend on your account permissions and plan.
